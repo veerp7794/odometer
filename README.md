@@ -4,5 +4,5 @@ Write a program that calculates mileage reimbursement for a salesperson at a rat
 ## Build Status
 [![Build Status](https://travis-ci.com/veerp7794/odometer.svg?branch=master)](https://travis-ci.com/veerp7794/odometer)
 
-
+## Code Quality
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f3bffde75ab5408f8c4bdf34339d597d)](https://www.codacy.com/manual/veerp7794/odometer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=veerp7794/odometer&amp;utm_campaign=Badge_Grade)
