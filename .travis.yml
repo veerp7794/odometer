@@ -1,0 +1,33 @@
+language: c
+
+compiler:
+  - gcc
+before_install:
+  - echo "Reached before install Section - cunit packages install"
+  - sudo apt-get update
+ # - sudo apt-get -y install libcunit1 libcunit1-doc libcunit1-dev
+ 
+ #Quick fix using one subversion previous
+  - wget http://downloads.sourceforge.net/project/cunit/CUnit/2.1-2/CUnit-2.1-2-src.tar.bz2
+  - tar -xvjpf CUnit-2.1-2-src.tar.bz2
+  - cd CUnit-2.1-2
+  - ./configure --prefix=$TRAVIS_BUILD_DIR
+  - make
+  - make install
+  - export C_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$C_INCLUDE_PATH
+  - export LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LIBRARY_PATH
+  - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LD_LIBRARY_PATH
+  #Come back to the repo unwarpped folder
+  - cd ..
+  - cd c
+install:
+  - echo  "Reached Install Section"
+
+script:
+  - pwd
+  - echo "Reached Script Section - Multi File Compile "
+  - gcc   	Linkfile_multifile/demofile2.c Linkfile_multifile/file1.c  	Linkfile_multifile/file2.c -o output
+  - ./output
+  - echo "Reached Script Section - cunit_democode"
+  - gcc   	intial_demo_code_cunit.c -o cunit_democode
+  - ./cunit_democode
